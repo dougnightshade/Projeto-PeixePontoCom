@@ -1,0 +1,37 @@
+/*Padroniza os botoes para ter core claras e ficarem com a cor mais escura quando estiverem em foco e hover*/
+.btn-close {
+	color: #8a8a8a;
+	font-size: 2em;
+	line-height: 1;
+	cursor: pointer;
+}
+.btn-close:hover, .btn-close:focus {
+	color: #0a0a0a;
+}
+/*configuração para o tamanho dos potoes*/
+.size-icon{
+	font-size: 48px;
+}
+@media(max-width: 768px) {
+.size-icon {
+	font-size: 24px;
+}
+}
+
+.toggled {
+	width: 18em;
+	background-color: #000;
+	overflow-y: auto;
+	
+	-webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.menu{
+	z-index: 1000;
+}
+.content{
+	z-index: 100;
+}

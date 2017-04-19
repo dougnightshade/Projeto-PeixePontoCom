@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 07/09/2016 21:42:25 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.dao.TelefoneCliente" table="telefone_cliente" catalog="peixepontocom" optimistic-lock="version">
+        <id name="telefoneClienteCodigo" type="java.lang.Integer">
+            <column name="telefone_Cliente_Codigo" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="cliente" class="model.dao.Cliente" fetch="select">
+            <column name="fk_cliente_Codigo" not-null="true" />
+        </many-to-one>
+        <property name="telefoneClientePrefixoFixo" type="string">
+            <column name="telefone_Cliente_PrefixoFixo" length="3" />
+        </property>
+        <property name="telefoneClienteFixo" type="string">
+            <column name="telefone_Cliente_Fixo" length="10" />
+        </property>
+        <property name="telefoneClientePrefixoCelular" type="string">
+            <column name="telefone_Cliente_PrefixoCelular" length="3" />
+        </property>
+        <property name="telefoneClienteCelular" type="string">
+            <column name="telefone_Cliente_Celular" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

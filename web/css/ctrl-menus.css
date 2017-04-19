@@ -1,0 +1,190 @@
+/*Controle de Clases Bootstrap*/
+.navbar{
+    height: 5em;
+    border-radius: 0px;
+    background-color: rgb(35, 40, 46);
+
+    /*Cor de fundo mais clara*/
+    /*background-color: rgb(52, 73, 94);*/
+
+    /*Bordas Gerais*/
+    border-color: rgb(0, 0, 0);
+    border: 1px solid;
+    box-shadow: 1px 1px 1px grey;
+
+    margin-bottom: 0px;
+}
+
+.nav > li{
+    font-weight: bold;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    height: 5em;
+
+    /*Cor de fundo mais escura*/
+    background-color: rgb(39, 45, 51);    
+
+    color: #fff;
+    vertical-align: text-top;
+    padding-top: 1.75em;
+}
+
+
+
+/*Quando o botão resposivo e 
+clicado*/
+.collapse.in {
+    margin-top: 1.5em;;
+}
+
+.navbar-toggle{
+    margin-top: 15px;
+}
+
+@media screen and (min-width: 640px){
+    .navbar{
+        margin-bottom: 0.5em;
+    }
+}
+
+
+@media screen and (max-width:640px){
+    .navbar-toggle{
+        margin-top:  7px;
+        padding-left: 15px;
+        padding-right: 15px;
+        /*padding:  0px;*/
+    }
+}
+
+
+/*Para resoluçoes menores que 
+500px*/
+/*@media screen and (max-width: 480px) {*/
+@media screen and (max-width: 640px) {
+    .cbp-spmenu-vertical{
+        /*Largura do menu*/
+        width: 70%;
+        margin-top: 4.1em;
+    }
+}
+
+/*Titulo Menu*/
+.cbp-spmenu li{
+    list-style: none;
+    line-height: 2em;
+    border-bottom-color: rgb(0, 0, 0);
+
+    text-align: justify;
+
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+}
+
+.cbp-spmenu ul li ul li:hover{
+    border-left: 3px solid #d19b3d;
+    border-right: 3px solid #d19b3d;
+    /*background-color: #4f5b69;*/
+
+
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.cbp-spmenu ul li ul li a{
+    height: 100%;
+    width: 100%;
+    color: #fff;
+}
+
+
+/*Todos os titulos dentro*/
+.menu-cabecalho > h4 {
+    margin: 0px;
+    padding-top: 0.5em;
+    /*background-color: rgb(35, 40, 46);*/
+    background-color: rgb(39, 45, 51);
+    color: #fff;
+    padding-left: 0.5em;
+    cursor: default;
+
+    /*Controle de Boras*/
+    border-bottom: 1px solid rgb(52, 56, 61);
+}
+
+.menu-cabecalho li[onclick]{
+    color: #fff;
+    padding-left: 1.5em;
+}
+
+/*Todos os link do menu principal*/
+.cbp-spmenu li a{
+    text-decoration: none;
+    padding-left:  1.5em;
+    cursor: pointer;
+}
+
+/*Todas as li's do menu Principal'*/
+.cbp-spmenu li{
+
+    /*Controle de Bordas*/
+    border-bottom: 1px solid #23282e;
+
+}
+
+.cbp-spmenu{
+    border-left: 3px solid rgba(0, 0, 0, 0.5);
+    border-right: 3px solid rgba(0, 0, 0, 0.5);
+}
+
+/*============== Controle btn-group*/
+.btn-group-justified {
+    margin-bottom: 1em;
+}
+
+a > span.glyphicon{
+    color: rgba(255, 255, 255, 1);
+}
+
+.size-36{
+    font-size: 36px;
+}
+/*
+.opacity {
+    background: #000 none repeat scroll 0 0;
+    display: none;
+    height: 100%;
+    opacity: 0.5;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9998;
+}*/
+
+.menu-cabecalho h4:after{
+    color: #000000;
+    font-size: 1.3em;
+    
+    /*content: "\2302";*/
+    
+    /*Seta para baixo*/
+    /*content:  "\02C5";*/
+    
+    /*Simbolo legal*/
+    /*content:  " \03D7";*/
+    
+    /*Simbolo HarryPotter*/
+    /*content: " \03DF";*/
+    
+    /*Seta estranha*/
+    content: " \0606"; 
+    
+    /*Icone Legal*/
+    /*content: " \03D7";*/ 
+}

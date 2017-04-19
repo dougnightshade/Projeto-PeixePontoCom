@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 07/09/2016 21:42:25 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.dao.Cliente" table="cliente" catalog="peixepontocom" optimistic-lock="version">
+        <id name="clienteCodigo" type="java.lang.Integer">
+            <column name="cliente_Codigo" />
+            <generator class="identity" />
+        </id>
+        <property name="clienteCnpjcpf" type="string">
+            <column name="cliente_CNPJCPF" length="20" not-null="true" />
+        </property>
+        <property name="clienteNome" type="string">
+            <column name="cliente_Nome" length="50" not-null="true" />
+        </property>
+        <property name="clienteEmail" type="string">
+            <column name="cliente_Email" length="50" />
+        </property>
+        <set name="telefoneClientes" table="telefone_cliente" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fk_cliente_Codigo" not-null="true" />
+            </key>
+            <one-to-many class="model.dao.TelefoneCliente" />
+        </set>
+        <set name="vendas" table="venda" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fk_cliente_Codigo" not-null="true" />
+            </key>
+            <one-to-many class="model.dao.Venda" />
+        </set>
+    </class>
+</hibernate-mapping>

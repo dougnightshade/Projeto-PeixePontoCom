@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 07/09/2016 21:42:25 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.dao.TelefoneFornecedor" table="telefone_fornecedor" catalog="peixepontocom" optimistic-lock="version">
+        <id name="telefoneFornecedorCodigo" type="java.lang.Integer">
+            <column name="telefone_Fornecedor_Codigo" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="fornecedor" class="model.dao.Fornecedor" fetch="select">
+            <column name="fk_fornecedor_Codigo" not-null="true" />
+        </many-to-one>
+        <property name="telefoneFornecedorPrefixoFixo" type="string">
+            <column name="telefone_Fornecedor_PrefixoFixo" length="3" not-null="true" />
+        </property>
+        <property name="telefoneFornecedorFixo" type="string">
+            <column name="telefone_Fornecedor_Fixo" length="10" not-null="true" />
+        </property>
+        <property name="telefoneFornecedorPrefixoCelular" type="string">
+            <column name="telefone_Fornecedor_PrefixoCelular" length="3" not-null="true" />
+        </property>
+        <property name="telefoneFornecedorCelular" type="string">
+            <column name="telefone_Fornecedor_Celular" length="10" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

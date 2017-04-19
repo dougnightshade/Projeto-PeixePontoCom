@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18/10/2016 09:33:54 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.bean.Realiza" table="realiza" catalog="peixepontocom" optimistic-lock="version">
+        <id name="realizaCodigo" type="java.lang.Integer">
+            <column name="realiza_Codigo" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="biometria" class="model.bean.Biometria" fetch="select">
+            <column name="fk_R_Biometria_Codigo" not-null="true" />
+        </many-to-one>
+        <many-to-one name="funcionario" class="model.bean.Funcionario" fetch="select">
+            <column name="fk_R_Funcionario_Codigo" not-null="true" />
+        </many-to-one>
+        <property name="realizaPeso" type="big_decimal">
+            <column name="realiza_Peso" precision="10" scale="3" not-null="true" />
+        </property>
+        <property name="realizaTamanho" type="big_decimal">
+            <column name="realiza_Tamanho" precision="10" scale="3" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

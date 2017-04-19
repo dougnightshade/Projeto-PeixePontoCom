@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 07/09/2016 21:42:25 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.dao.RegistraLotedepeixe" table="registra_lotedepeixe" catalog="peixepontocom" optimistic-lock="version">
+        <id name="registraLoteDePeixeCodigo" type="java.lang.Integer">
+            <column name="registra_LoteDePeixe_Codigo" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="funcionario" class="model.dao.Funcionario" fetch="select">
+            <column name="fk_funcionario_Codigo" not-null="true" />
+        </many-to-one>
+        <many-to-one name="gaiola" class="model.dao.Gaiola" fetch="select">
+            <column name="fk_gaiola_Codigo" not-null="true" />
+        </many-to-one>
+        <property name="registraLoteDePeixeQtdMaxM3" type="int">
+            <column name="registra_LoteDePeixe_QtdMaxM3" not-null="true" />
+        </property>
+        <property name="registraLoteDePeixeQuantidade" type="int">
+            <column name="registra_LoteDePeixe_Quantidade" not-null="true" />
+        </property>
+        <property name="registraLoteDePeixeCustoLote" type="big_decimal">
+            <column name="registra_LoteDePeixe_CustoLote" precision="10" not-null="true" />
+        </property>
+        <property name="registraLoteDePeixeDataDeRegistro" type="date">
+            <column name="registra_LoteDePeixe_DataDeRegistro" length="10" not-null="true" />
+        </property>
+        <property name="fkTipoPeixesCodigo" type="int">
+            <column name="fk_tipo_Peixes_Codigo" not-null="true" />
+        </property>
+        <set name="realizas" table="realiza" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fk_registra_LoteDePeixe_Codigo" not-null="true" />
+            </key>
+            <one-to-many class="model.dao.Realiza" />
+        </set>
+        <set name="vendas" table="venda" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fk_registra_LoteDePeixe_Codigo" not-null="true" />
+            </key>
+            <one-to-many class="model.dao.Venda" />
+        </set>
+    </class>
+</hibernate-mapping>

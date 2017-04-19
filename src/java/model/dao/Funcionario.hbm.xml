@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 07/09/2016 21:42:25 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.dao.Funcionario" table="funcionario" catalog="peixepontocom" optimistic-lock="version">
+        <id name="funcionarioCodigo" type="java.lang.Integer">
+            <column name="funcionario_Codigo" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tipoFuncionario" class="model.dao.TipoFuncionario" fetch="select">
+            <column name="fk_tipo_Funcionario_Codigo" not-null="true" />
+        </many-to-one>
+        <property name="funcionarioNome" type="string">
+            <column name="funcionario_Nome" length="45" not-null="true" />
+        </property>
+        <property name="funcionarioEmail" type="string">
+            <column name="funcionario_Email" length="45" not-null="true" />
+        </property>
+        <property name="funcionarioTelPrefixoFixo" type="string">
+            <column name="funcionario_telPrefixoFixo" length="3" />
+        </property>
+        <property name="funcionarioTelFixo" type="string">
+            <column name="funcionario_telFixo" length="10" />
+        </property>
+        <property name="funcionarioTelPrefixoCelular" type="string">
+            <column name="funcionario_telPrefixoCelular" length="3" />
+        </property>
+        <property name="funcionarioTelCelular" type="string">
+            <column name="funcionario_telCelular" length="10" />
+        </property>
+        <property name="funcionarioUsuLogin" type="string">
+            <column name="funcionario_usuLogin" length="45" />
+        </property>
+        <property name="funcionarioUsuSenha" type="string">
+            <column name="funcionario_usuSenha" length="32" />
+        </property>
+        <set name="registraLotedepeixes" table="registra_lotedepeixe" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fk_funcionario_Codigo" not-null="true" />
+            </key>
+            <one-to-many class="model.dao.RegistraLotedepeixe" />
+        </set>
+        <set name="realizas" table="realiza" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fk_funcionario_Codigo" not-null="true" />
+            </key>
+            <one-to-many class="model.dao.Realiza" />
+        </set>
+    </class>
+</hibernate-mapping>

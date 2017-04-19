@@ -1,0 +1,76 @@
+@charset "utf-8";
+* {
+	font-family: consolas;
+}
+/*Criações/Identificadores*/
+#divTitulo {
+	/*background-color:#050713;*/
+	height: 50px;
+	width: 300px;
+	margin-left: 20%;
+	border-bottom-left-radius: 90%;
+	border-bottom-right-radius: 90%;
+	background-color: rgba( 0, 0, 0, 0.7);
+}
+#sprytextfield1 {
+	margin: 5px;
+}
+#sprytextfield2 {
+	margin: 5px;
+}
+#caixaExterna {
+	margin-top: -50px;
+	padding-top: 50px;
+	width: 300px;
+	height: 500px;
+	margin-left: 20%;
+	background-color: rgba(0,0,0,0.6);
+	border-bottom-left-radius: 1%;
+	border-bottom-right-radius: 1%;
+	box-shadow: 0px 0px 100px 10px black;
+}
+#tituloBemVindo {
+	color: #FFF;
+	padding-top: 5px;
+	font-size: 24px;
+}
+#botaoEntrar {
+	position: relative;
+	float: right;
+}
+#tfLogin {
+	width: 250px;
+	margin: auto;
+}
+#tfSenha {
+	width: 250px;
+	margin: auto;
+}
+/*Modificações tags*/
+body {
+	background-image: url(../img/FundoTelaDeLoginDesktop02.jpg);
+        width: 1360px;
+        height: 100%;
+}
+label {
+	margin-top: 15px;
+}
+/*Classes*/
+.corBranco {
+	color: #FFF;
+}
+#important {
+	color: #ff0000;
+}
+
+/*Media Quary*/
+@media screen and (max-width: 768px) {
+#caixaExterna {
+	height: 350px;
+	margin: auto;
+	background-color: rgba(0,0,0,0.6);
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	box-shadow: 0px 0px 100px 10px black;
+}
+}

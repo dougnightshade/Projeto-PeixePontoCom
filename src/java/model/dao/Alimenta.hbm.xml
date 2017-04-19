@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 07/09/2016 21:42:25 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.dao.Alimenta" table="alimenta" catalog="peixepontocom" optimistic-lock="version">
+        <id name="alimentaCodigo" type="java.lang.Integer">
+            <column name="alimenta_Codigo" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="alimentaHora" class="model.dao.AlimentaHora" fetch="select">
+            <column name="fk_alimenta_Hora_Codigo" not-null="true" />
+        </many-to-one>
+        <many-to-one name="biometria" class="model.dao.Biometria" fetch="select">
+            <column name="fk_biometria_Codigo" not-null="true" />
+        </many-to-one>
+        <many-to-one name="gaiola" class="model.dao.Gaiola" fetch="select">
+            <column name="fk_gaiola_Codigo" not-null="true" />
+        </many-to-one>
+        <many-to-one name="racao" class="model.dao.Racao" fetch="select">
+            <column name="fk_racao_Codigo" not-null="true" />
+        </many-to-one>
+        <property name="alimentaQtdDaRefeicao" type="string">
+            <column name="alimenta_QtdDaRefeicao" length="45" not-null="true" />
+        </property>
+        <property name="alimentaData" type="date">
+            <column name="alimenta_Data" length="10" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18/10/2016 09:33:54 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.bean.Fornecimentos" table="fornecimentos" catalog="peixepontocom" optimistic-lock="version">
+        <id name="fornecimentosCodigo" type="java.lang.Integer">
+            <column name="fornecimentos_Codigo" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="fornecedor" class="model.bean.Fornecedor" fetch="select">
+            <column name="fk_F_fornecedor_Codigo" not-null="true" />
+        </many-to-one>
+        <many-to-one name="racao" class="model.bean.Racao" fetch="select">
+            <column name="fk_F_racao_Codigo" not-null="true" />
+        </many-to-one>
+        <property name="fornecimentosNumeroNf" type="int">
+            <column name="fornecimentos_NumeroNF" not-null="true" />
+        </property>
+        <property name="fornecimentosQtdRacao" type="big_decimal">
+            <column name="fornecimentos_QtdRacao" precision="10" scale="3" not-null="true" />
+        </property>
+        <property name="fornecimentosCustoDeCompra" type="big_decimal">
+            <column name="fornecimentos_CustoDeCompra" precision="10" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

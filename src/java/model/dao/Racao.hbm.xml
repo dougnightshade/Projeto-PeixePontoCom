@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 07/09/2016 21:42:25 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.dao.Racao" table="racao" catalog="peixepontocom" optimistic-lock="version">
+        <id name="racaoCodigo" type="java.lang.Integer">
+            <column name="racao_Codigo" />
+            <generator class="identity" />
+        </id>
+        <property name="racaoNome" type="string">
+            <column name="racao_Nome" length="45" not-null="true" />
+        </property>
+        <property name="racaoEstoque" type="big_decimal">
+            <column name="racao_Estoque" precision="8" not-null="true" />
+        </property>
+        <property name="racaoPreco" type="big_decimal">
+            <column name="racao_Preco" precision="8" not-null="true" />
+        </property>
+        <set name="fornecedorHasRacaos" table="fornecedor_has_racao" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fk_racao_Codigo" not-null="true" />
+            </key>
+            <one-to-many class="model.dao.FornecedorHasRacao" />
+        </set>
+        <set name="alimentas" table="alimenta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fk_racao_Codigo" not-null="true" />
+            </key>
+            <one-to-many class="model.dao.Alimenta" />
+        </set>
+    </class>
+</hibernate-mapping>

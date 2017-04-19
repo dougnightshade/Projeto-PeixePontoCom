@@ -1,0 +1,86 @@
+/* ================= Controle de Clases Bootstrap*/
+.navbar{
+    border-radius: 0px;
+    /*    background-color: rgb(35, 40, 46);*/
+    background-color: #333333;
+
+    /*Cor de fundo mais clara*/
+    /*background-color: rgb(52, 73, 94);*/
+
+    /*Bordas Gerais*/
+    border-color: rgb(0, 0, 0);
+    border: 1px solid;
+    box-shadow: 1px 1px 1px grey;
+
+}
+
+
+
+/*Controle de Clases Bootstrap =====================*/
+
+
+/* =======================CSS para telas mairores que 640*/
+@media screen and (min-width: 640px){
+    .navbar{
+        margin-bottom: 0.5em;
+    }
+    .navbar-brand-principal{
+        float: left;
+        font-size: 18px;
+        line-height: 20px;
+
+        padding-top: 10px;
+        padding-left: 15px;
+    }
+
+    .navbar-header{
+        padding-right: 1.3em;
+    }
+}
+
+/*=================== CSS para telas menures que 640px*/
+@media screen and (max-width:640px){
+    .cbp-spmenu-left.cbp-spmenu-open {
+        left: 0;
+        width: 80%;
+        margin-top: 2.6em;
+    }
+}
+
+
+/*.cbp-spmenu ul li ul li:hover{
+    border-left: 3px solid #d19b3d;
+    border-right: 3px solid #d19b3d;
+    background-color: #4f5b69;
+
+
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}*/
+
+.sidebar{
+    background-color: #333333;
+}
+
+#btn-navTopMenu{
+    cursor: pointer;
+}
+
+.cbp-spmenu {
+    border-bottom-right-radius: 0.3em;
+}
+
+/*.nav > li > a:hover,
+.nav > li > a:focus {
+    text-decoration: none;
+    background-color: rgb(196, 196, 255);
+}*/
+
+@media screen and (max-width: 1024px){
+    .cbp-spmenu-vertical{
+        width: 30%;
+    }   
+}

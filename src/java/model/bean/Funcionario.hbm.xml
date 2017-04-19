@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23/10/2016 17:38:29 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.bean.Funcionario" table="funcionario" catalog="peixepontocom" optimistic-lock="version">
+        <id name="funcionarioCodigo" type="java.lang.Integer">
+            <column name="funcionario_Codigo" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tipoFuncionario" class="model.bean.TipoFuncionario" fetch="select">
+            <column name="fk_F_tipo_Funcionario_Codigo" not-null="true" />
+        </many-to-one>
+        <property name="funcionarioNome" type="string">
+            <column name="funcionario_Nome" length="45" not-null="true" />
+        </property>
+        <property name="funcionarioEmail" type="string">
+            <column name="funcionario_Email" length="45" not-null="true" />
+        </property>
+        <property name="funcionarioTelDddfixo" type="string">
+            <column name="funcionario_telDDDFixo" length="3" />
+        </property>
+        <property name="funcionarioTelFixo" type="string">
+            <column name="funcionario_telFixo" length="10" />
+        </property>
+        <property name="funcionarioTelDddcelular" type="string">
+            <column name="funcionario_telDDDCelular" length="3" />
+        </property>
+        <property name="funcionarioTelCelular" type="string">
+            <column name="funcionario_telCelular" length="10" />
+        </property>
+        <property name="funcionarioUsuLogin" type="string">
+            <column name="funcionario_usuLogin" length="45" />
+        </property>
+        <property name="funcionarioUsuSenha" type="string">
+            <column name="funcionario_usuSenha" length="32" />
+        </property>
+        <property name="funcionarioAtivo" type="boolean">
+            <column name="funcionario_Ativo" not-null="true" />
+        </property>
+        <set name="registraLotedepeixes" table="registra_lotedepeixe" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fk_Rl_Funcionario_Codigo" not-null="true" />
+            </key>
+            <one-to-many class="model.bean.RegistraLotedepeixe" />
+        </set>
+        <set name="biometriaPeixeItems" table="biometria_peixe_item" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fk_Bpi_funcionario_Codigo" not-null="true" />
+            </key>
+            <one-to-many class="model.bean.BiometriaPeixeItem" />
+        </set>
+        <set name="notificacaos" table="notificacao" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fk_Tn_funcionario_Codigo" not-null="true" />
+            </key>
+            <one-to-many class="model.bean.Notificacao" />
+        </set>
+    </class>
+</hibernate-mapping>

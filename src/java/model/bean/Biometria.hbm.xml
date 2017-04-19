@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18/10/2016 09:33:54 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.bean.Biometria" table="biometria" catalog="peixepontocom" optimistic-lock="version">
+        <id name="biometriaCodigo" type="java.lang.Integer">
+            <column name="biometria_Codigo" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="registraLotedepeixe" class="model.bean.RegistraLotedepeixe" fetch="select">
+            <column name="fk_B_registra_LoteDePeixe_Codigo" not-null="true" />
+        </many-to-one>
+        <property name="biometriaTotalQuilos" type="big_decimal">
+            <column name="biometria_TotalQuilos" precision="10" scale="3" not-null="true" />
+        </property>
+        <property name="biometriaNumDaEtapa" type="int">
+            <column name="biometria_NumDaEtapa" not-null="true" />
+        </property>
+        <property name="biometriaTaxaArracoamento" type="big_decimal">
+            <column name="biometria_TaxaArracoamento" precision="10" scale="3" not-null="true" />
+        </property>
+        <property name="biometriaDataBiometria" type="date">
+            <column name="biometria_DataBiometria" length="10" not-null="true" />
+        </property>
+        <set name="realizas" table="realiza" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fk_R_Biometria_Codigo" not-null="true" />
+            </key>
+            <one-to-many class="model.bean.Realiza" />
+        </set>
+        <set name="alimentas" table="alimenta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fk_A_Biometria_Codigo" not-null="true" />
+            </key>
+            <one-to-many class="model.bean.Alimenta" />
+        </set>
+    </class>
+</hibernate-mapping>

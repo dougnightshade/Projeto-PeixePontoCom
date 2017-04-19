@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 07/09/2016 21:42:25 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.dao.Venda" table="venda" catalog="peixepontocom" optimistic-lock="version">
+        <id name="vendaCodigo" type="java.lang.Integer">
+            <column name="venda_Codigo" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="cliente" class="model.dao.Cliente" fetch="select">
+            <column name="fk_cliente_Codigo" not-null="true" />
+        </many-to-one>
+        <many-to-one name="registraLotedepeixe" class="model.dao.RegistraLotedepeixe" fetch="select">
+            <column name="fk_registra_LoteDePeixe_Codigo" not-null="true" />
+        </many-to-one>
+        <property name="vendaValorTotalVenda" type="big_decimal">
+            <column name="venda_ValorTotalVenda" precision="10" not-null="true" />
+        </property>
+        <property name="vendaData" type="date">
+            <column name="venda_Data" length="10" not-null="true" />
+        </property>
+        <property name="vendaHora" type="time">
+            <column name="venda_Hora" length="8" not-null="true" />
+        </property>
+        <property name="vendaPesoTotal" type="big_decimal">
+            <column name="venda_PesoTotal" precision="10" scale="3" not-null="true" />
+        </property>
+        <property name="vendaDataRegistro" type="date">
+            <column name="venda_DataRegistro" length="10" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

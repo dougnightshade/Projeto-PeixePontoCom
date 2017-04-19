@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23/10/2016 17:38:29 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.bean.TelefoneFornecedor" table="telefone_fornecedor" catalog="peixepontocom" optimistic-lock="version">
+        <id name="telefoneFornecedorCodigo" type="java.lang.Integer">
+            <column name="telefone_Fornecedor_Codigo" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="fornecedor" class="model.bean.Fornecedor" fetch="select">
+            <column name="fk_Tf_Fornecedor_Codigo" not-null="true" />
+        </many-to-one>
+        <property name="telefoneFornecedorDddfixo" type="string">
+            <column name="telefone_Fornecedor_DDDFixo" length="3" />
+        </property>
+        <property name="telefoneFornecedorFixo" type="string">
+            <column name="telefone_Fornecedor_Fixo" length="10" />
+        </property>
+        <property name="telefoneFornecedorDddcelular" type="string">
+            <column name="telefone_Fornecedor_DDDCelular" length="3" />
+        </property>
+        <property name="telefoneFornecedorCelular" type="string">
+            <column name="telefone_Fornecedor_Celular" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

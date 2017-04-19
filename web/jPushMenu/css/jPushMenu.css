@@ -1,0 +1,77 @@
+/* General styles for all menus */
+
+.cbp-spmenu {
+    background-color: rgb(35, 40, 46);
+    position: absolute;
+
+    /*alinha o menu lateral com o menu superior*/
+    /*margin-top: 5em;*/
+}
+
+/* Orientation-dependent styles for the content of the menu */
+.cbp-spmenu-vertical {
+
+    /*Largura do menu*/
+    width: 20%;
+
+    /*Concerta a altura do menu lateral*/
+    /*height: 100%;*/
+    top: 0;
+
+    z-index: 1000;
+}
+
+
+/* Vertical menu that slides from the left or right */
+.cbp-spmenu-left {
+    left: -100%;
+}
+
+.cbp-spmenu-left.cbp-spmenu-open {
+    left: 0em;
+}
+
+/* Horizontal menu that slides from the top or bottom */
+
+.cbp-spmenu-top {
+    top: -150px;
+}
+
+.cbp-spmenu-bottom {
+    bottom: -150px;
+}
+
+.cbp-spmenu-top.cbp-spmenu-open {
+    top: 0px;
+}
+
+.cbp-spmenu-bottom.cbp-spmenu-open {
+    bottom: 0px;
+}
+
+/* Push classes applied to the body */
+
+.cbp-spmenu-push {
+    overflow-x: hidden;
+    position: relative;
+    left: 0;
+}
+
+.cbp-spmenu-push-toright {
+    left: 18em;
+}
+
+.cbp-spmenu-push-toleft {
+    left: -18em;
+}
+
+/* Transitions */
+
+.cbp-spmenu,
+.cbp-spmenu-push {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+/* Example media queries */

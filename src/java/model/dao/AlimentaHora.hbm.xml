@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 07/09/2016 21:42:25 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.dao.AlimentaHora" table="alimenta_hora" catalog="peixepontocom" optimistic-lock="version">
+        <id name="alimentaHoraCodigo" type="java.lang.Integer">
+            <column name="alimenta_Hora_Codigo" />
+            <generator class="identity" />
+        </id>
+        <property name="alimentaHoraHora" type="time">
+            <column name="alimenta_Hora_Hora" length="8" not-null="true" />
+        </property>
+        <set name="alimentas" table="alimenta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fk_alimenta_Hora_Codigo" not-null="true" />
+            </key>
+            <one-to-many class="model.dao.Alimenta" />
+        </set>
+    </class>
+</hibernate-mapping>

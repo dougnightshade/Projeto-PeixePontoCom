@@ -1,0 +1,87 @@
+/*Refatorações*/
+a{
+    text-decoration: none;
+    /*color: #fff;*/
+    /*cursor: context-menu;*/
+    cursor: default;
+}
+
+/*Classes padrões*/
+.size-24 {
+    font-size: 24px;
+}
+.size-36 {
+    font-size: 36px;
+}
+.size-48 {
+    font-size: 48px;
+}
+.size-60 {
+    font-size: 60px;
+}
+.conteiner {
+    padding-left: 0;
+    width: 100%;
+    background-color: #000;
+    color:#FFF;
+    z-index: -1000;
+}
+
+/*Menu Superior*/
+.TopMenu{
+    width: 100%;
+    /*background-color: rgba(46, 64, 83, 0.95);*/
+    background-color: rgba(46, 64, 83, 1);
+    box-shadow: #000;
+    box-shadow: 1px 2px rgba(0, 0, 0, 0.6);
+}
+.TopMenu ul{
+    list-style: none;
+    color: #fff;
+}
+.TopMenu-conteiner{
+    width: 90%;
+    margin: auto;
+    background-color: #2e4053;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+.TopMenu-conteiner li:hover{
+    background-color: rgba(0, 0, 0, 1);
+    /*border-bottom-color:*/ 
+}
+.TopMenu-Atalhos{
+    display: inline-block;
+}
+.TopMenu-Atalhos li{
+    float: right;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    margin: 0.2em;
+}
+.TopMenu-Atalhos a:hover{
+    color: #222;
+    background: rgba(0,0,0,0.2);
+}
+
+.TopMenu-PainelUsuario{
+    float: right;
+    height: 100%;
+    padding-top: 0.5em;
+}
+.TopMenu-PainelUsuario > li > a{
+    float: right;
+    color: #FFF;
+    text-decoration: none;
+    padding-left: 1em;
+    padding-right: 1em;
+    border-radius: 20%;
+}
+.TopMenu-PainelUsuario > li > a:hover{
+    background-color: #000;
+    background-color: rgba(46, 64, 100, 1);
+}
+.TopMenu-PainelUsuario > li > a > i{
+    padding-left: 0.2em;
+
+}

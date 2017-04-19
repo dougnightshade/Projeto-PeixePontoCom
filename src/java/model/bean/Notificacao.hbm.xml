@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23/10/2016 17:38:29 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.bean.Notificacao" table="notificacao" catalog="peixepontocom" optimistic-lock="version">
+        <id name="notificacaoCodigo" type="java.lang.Integer">
+            <column name="notificacao_Codigo" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="funcionario" class="model.bean.Funcionario" fetch="select">
+            <column name="fk_Tn_funcionario_Codigo" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tipoNotificacao" class="model.bean.TipoNotificacao" fetch="select">
+            <column name="fk_Tn_tipo_Notificacao_Codigo" not-null="true" />
+        </many-to-one>
+        <property name="notificacaoTitulo" type="string">
+            <column name="notificacao_Titulo" length="45" not-null="true" />
+        </property>
+        <property name="notificacaoDescricao" type="string">
+            <column name="notificacao_Descricao" not-null="true" />
+        </property>
+        <property name="notificacaoData" type="date">
+            <column name="notificacao_Data" length="10" not-null="true" />
+        </property>
+        <property name="notificacaoHora" type="time">
+            <column name="notificacao_Hora" length="8" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

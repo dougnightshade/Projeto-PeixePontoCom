@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 07/09/2016 21:42:25 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.dao.TipoFuncionario" table="tipo_funcionario" catalog="peixepontocom" optimistic-lock="version">
+        <id name="tipoFuncionarioCodigo" type="java.lang.Integer">
+            <column name="tipo_Funcionario_Codigo" />
+            <generator class="identity" />
+        </id>
+        <property name="tipoFuncionarioDescricao" type="string">
+            <column name="tipo_Funcionario_Descricao" length="45" not-null="true" />
+        </property>
+        <set name="funcionarios" table="funcionario" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fk_tipo_Funcionario_Codigo" not-null="true" />
+            </key>
+            <one-to-many class="model.dao.Funcionario" />
+        </set>
+    </class>
+</hibernate-mapping>

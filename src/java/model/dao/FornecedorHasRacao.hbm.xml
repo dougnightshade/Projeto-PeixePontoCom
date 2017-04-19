@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 07/09/2016 21:42:25 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.dao.FornecedorHasRacao" table="fornecedor_has_racao" catalog="peixepontocom" optimistic-lock="version">
+        <id name="fornecedorHasRacaoCodigo" type="java.lang.Integer">
+            <column name="fornecedor_has_racao_Codigo" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="fornecedor" class="model.dao.Fornecedor" fetch="select">
+            <column name="fk_fornecedor_Codigo" not-null="true" />
+        </many-to-one>
+        <many-to-one name="racao" class="model.dao.Racao" fetch="select">
+            <column name="fk_racao_Codigo" not-null="true" />
+        </many-to-one>
+        <property name="fornecedorHasRacaoNumeroNf" type="int">
+            <column name="fornecedor_has_racao_NumeroNF" not-null="true" />
+        </property>
+        <property name="fornecedorHasRacaoQtdRacao" type="big_decimal">
+            <column name="fornecedor_has_racao_QtdRacao" precision="8" not-null="true" />
+        </property>
+        <property name="fornecedorHasRacaoUnidDeMedida" type="string">
+            <column name="fornecedor_has_racao_UnidDeMedida" length="45" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

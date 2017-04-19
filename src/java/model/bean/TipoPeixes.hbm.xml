@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23/10/2016 17:38:29 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.bean.TipoPeixes" table="tipo_peixes" catalog="peixepontocom" optimistic-lock="version">
+        <id name="tipoPeixesCodigo" type="java.lang.Integer">
+            <column name="tipo_Peixes_Codigo" />
+            <generator class="identity" />
+        </id>
+        <property name="tipoPeixesNomePopular" type="string">
+            <column name="tipo_Peixes_NomePopular" length="45" not-null="true" />
+        </property>
+        <property name="tipoPeixesNomeCientifico" type="string">
+            <column name="tipo_Peixes_NomeCientifico" length="45" />
+        </property>
+        <set name="registraLotedepeixes" table="registra_lotedepeixe" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fk_Rl_Tipo_Peixes_Codigo" not-null="true" />
+            </key>
+            <one-to-many class="model.bean.RegistraLotedepeixe" />
+        </set>
+    </class>
+</hibernate-mapping>

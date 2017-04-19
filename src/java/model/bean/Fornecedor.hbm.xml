@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23/10/2016 17:38:29 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.bean.Fornecedor" table="fornecedor" catalog="peixepontocom" optimistic-lock="version">
+        <id name="fornecedorCodigo" type="java.lang.Integer">
+            <column name="fornecedor_Codigo" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="bairros" class="model.bean.Bairros" fetch="select">
+            <column name="fk_F_bairro_Codigo" not-null="true" />
+        </many-to-one>
+        <property name="fornecedorNomeFantasia" type="string">
+            <column name="fornecedor_NomeFantasia" length="45" not-null="true" />
+        </property>
+        <property name="fornecedorRazaSocial" type="string">
+            <column name="fornecedor_RazaSocial" length="45" not-null="true">
+                <comment>Ra&#231;&#227;o Social</comment>
+            </column>
+        </property>
+        <property name="fornecedorCnpj" type="string">
+            <column name="fornecedor_CNPJ" length="18" not-null="true">
+                <comment>Sem mascara</comment>
+            </column>
+        </property>
+        <property name="fornecedorEmail" type="string">
+            <column name="fornecedor_Email" length="45" not-null="true" />
+        </property>
+        <property name="fornecedorComentarios" type="string">
+            <column name="fornecedor_Comentarios" />
+        </property>
+        <property name="fornecedorEndRua" type="string">
+            <column name="fornecedor_EndRua" length="120" not-null="true" />
+        </property>
+        <property name="fornecedorEndNumero" type="string">
+            <column name="fornecedor_EndNumero" length="6" not-null="true">
+                <comment>Coloquei o n&#250;mero como varchar por verificar n&#250;meros de identifica&#231;&#227;o compostos de letras em certos momentos</comment>
+            </column>
+        </property>
+        <set name="telefoneFornecedors" table="telefone_fornecedor" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fk_Tf_Fornecedor_Codigo" not-null="true" />
+            </key>
+            <one-to-many class="model.bean.TelefoneFornecedor" />
+        </set>
+        <set name="forneces" table="fornece" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fk_F_fornecedor_Codigo" not-null="true" />
+            </key>
+            <one-to-many class="model.bean.Fornece" />
+        </set>
+    </class>
+</hibernate-mapping>

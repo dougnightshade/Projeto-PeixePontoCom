@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23/10/2016 17:38:29 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.bean.TipoNotificacao" table="tipo_notificacao" catalog="peixepontocom" optimistic-lock="version">
+        <id name="tipoNotificacaoCodigo" type="java.lang.Integer">
+            <column name="tipo_Notificacao_Codigo" />
+            <generator class="identity" />
+        </id>
+        <property name="tipoNotificacaoDescricao" type="string">
+            <column name="tipo_Notificacao_Descricao" not-null="true" />
+        </property>
+        <property name="tipoNotificacaoClass" type="string">
+            <column name="tipo_Notificacao_class" length="45" not-null="true" />
+        </property>
+        <set name="notificacaos" table="notificacao" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fk_Tn_tipo_Notificacao_Codigo" not-null="true" />
+            </key>
+            <one-to-many class="model.bean.Notificacao" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,50 @@
+@charset "utf-8";
+/* CSS Document */
+
+.Verdana{
+  font-family:Verdana, Geneva, sans-serif;
+}
+
+.Georgia{
+  font-family:Georgia, "Times New Roman", Times, serif;
+}
+
+.Courier{
+  font-family:"Courier New", Courier, monospace;
+}
+
+.Arial{
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+.Tahoma{
+  font-family:Tahoma, Geneva, sans-serif;
+}
+
+.TrebuchetMS{
+  font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+.Times{
+  font-family:"Times New Roman", Times, serif;
+}
+
+.PalatinoLinotype{
+  font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+.LucidaSans{
+  font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+.MSSerif{
+  font-family:"MS Serif", "New York", serif;
+}
+
+.ComicSans{
+  font-family:"Comic Sans MS", cursive;
+}
+
+.chaparral{
+  font-family:"chaparral Pro";
+}

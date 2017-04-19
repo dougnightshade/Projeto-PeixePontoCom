@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 07/09/2016 21:42:25 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.dao.Gaiola" table="gaiola" catalog="peixepontocom" optimistic-lock="version">
+        <id name="gaiolaCodigo" type="java.lang.Integer">
+            <column name="gaiola_Codigo" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="statusGaiola" class="model.dao.StatusGaiola" fetch="select">
+            <column name="fk_status_Gaiola_Codigo" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tipoEstrutura" class="model.dao.TipoEstrutura" fetch="select">
+            <column name="fk_tipo_Estrutura_Codigo" not-null="true" />
+        </many-to-one>
+        <property name="gaiolaTamTotalM3" type="big_decimal">
+            <column name="gaiola_TamTotalM3" precision="10" not-null="true" />
+        </property>
+        <property name="gaiolaTamAltura" type="big_decimal">
+            <column name="gaiola_TamAltura" precision="10" not-null="true" />
+        </property>
+        <property name="gaiolaTamComprimento" type="big_decimal">
+            <column name="gaiola_TamComprimento" precision="10" not-null="true" />
+        </property>
+        <property name="gaiolaTamLargura" type="big_decimal">
+            <column name="gaiola_TamLargura" precision="10" not-null="true" />
+        </property>
+        <property name="gaiolaDataCricao" type="date">
+            <column name="gaiola_DataCricao" length="10" not-null="true" />
+        </property>
+        <set name="registraLotedepeixes" table="registra_lotedepeixe" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fk_gaiola_Codigo" not-null="true" />
+            </key>
+            <one-to-many class="model.dao.RegistraLotedepeixe" />
+        </set>
+        <set name="alimentas" table="alimenta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fk_gaiola_Codigo" not-null="true" />
+            </key>
+            <one-to-many class="model.dao.Alimenta" />
+        </set>
+    </class>
+</hibernate-mapping>

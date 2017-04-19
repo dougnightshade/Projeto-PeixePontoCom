@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23/10/2016 17:38:29 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.bean.RegistraLotedepeixe" table="registra_lotedepeixe" catalog="peixepontocom" optimistic-lock="version">
+        <id name="registraLoteDePeixeCodigo" type="java.lang.Integer">
+            <column name="registra_LoteDePeixe_Codigo" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="funcionario" class="model.bean.Funcionario" fetch="select">
+            <column name="fk_Rl_Funcionario_Codigo" not-null="true" />
+        </many-to-one>
+        <many-to-one name="gaiola" class="model.bean.Gaiola" fetch="select">
+            <column name="fk_Rl_Gaiola_Codigo" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tipoPeixes" class="model.bean.TipoPeixes" fetch="select">
+            <column name="fk_Rl_Tipo_Peixes_Codigo" not-null="true" />
+        </many-to-one>
+        <property name="registraLoteDePeixeQtdMaxM3" type="int">
+            <column name="registra_LoteDePeixe_QtdMaxM3" not-null="true" />
+        </property>
+        <property name="registraLoteDePeixeQuantidade" type="double">
+            <column name="registra_LoteDePeixe_Quantidade" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="registraLoteDePeixeCustoLote" type="big_decimal">
+            <column name="registra_LoteDePeixe_CustoLote" precision="10" not-null="true" />
+        </property>
+        <property name="registraLoteDePeixeDataDeRegistro" type="date">
+            <column name="registra_LoteDePeixe_DataDeRegistro" length="10" not-null="true" />
+        </property>
+        <property name="registraLoteDePeixeAtivo" type="boolean">
+            <column name="registra_LoteDePeixe_Ativo" not-null="true" />
+        </property>
+        <set name="biometriaPeixeItems" table="biometria_peixe_item" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fk_Bpi_registra_LoteDePeixe_Codigo" not-null="true" />
+            </key>
+            <one-to-many class="model.bean.BiometriaPeixeItem" />
+        </set>
+        <set name="vendas" table="venda" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fk_V_Registra_LoteDePeixe_Codigo" not-null="true" />
+            </key>
+            <one-to-many class="model.bean.Venda" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,115 @@
+@media (min-width: 640px){
+    /*    body{
+            width: 90%;
+            margin: auto;
+        }*/
+
+    .btnPesq{
+        padding: 8.5px;
+        border-bottom-left-radius: 5em;
+        border-bottom-right-radius: 5em;
+
+        /*position: absolute;*/
+        /*padding-left: -5em;*/
+    }
+    .ctrl-padding-top{
+        padding-top: 1em;
+    }
+
+    .panel{
+        background-color: rgba(255, 255, 255, 0.8);
+        /*background-color: #000000;*/
+    }
+}
+
+.ctrl-Lista{
+    padding-top: 2em;
+}
+
+.btnPesq-fix{
+    margin-top: -1.2em;
+    height: 2.4375rem;
+    vertical-align: central;
+}
+
+/*Ate 500 px*/
+@media (max-width: 640px) {
+    .cbp-spmenu{
+        font-size: 1.3em;
+    }
+
+    .btn-border-bottom-left-radius{
+        border-bottom-left-radius: 5em;
+    }
+    .btn-border-bottom-right-radius{
+        border-bottom-right-radius: 5em;
+    }
+
+    .container{
+        width: 100%;
+    }
+}
+
+label{
+    margin-top: 0.3em;
+}
+
+body{
+    /*background-color: rgba(250, 250, 250, 1);*/
+    /*background-color: rgba(236, 239, 241, 0.7);*/
+}
+
+img{
+    width: 100%;
+}
+.img-fix-tela-inicial{
+    width: 95%;
+}
+
+#LogoPeixePontoCom-telaprincipal{
+    position: fixed;
+    /*opacity: 0.8;*/
+    /*height: 100%;*/
+}
+#LogoPeixePontoCom{
+    position: fixed;
+    /*opacity: 0.8;*/
+    padding-top: 5em;
+}
+/*#LogoPeixePontoCom{
+    padding-top: 10em;
+}*/
+
+.img-fix{
+    width: 90%;
+    /*margin-left: 1em;*/
+}
+
+fieldset label{
+    margin-top: 0em;
+}
+
+tr[onclick]:hover{
+    font-size: 1.1em;
+}
+
+li[onclick]{
+    cursor: pointer;
+}
+
+.panel[onclick]{
+    cursor: pointer;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.panel .referencia{
+    font-size: 0.8em;
+}
+
+.table input{
+    margin-bottom: 0px;
+    padding: 0px;
+}

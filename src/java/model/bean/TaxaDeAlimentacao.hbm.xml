@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23/10/2016 17:38:29 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.bean.TaxaDeAlimentacao" table="taxa_de_alimentacao" catalog="peixepontocom" optimistic-lock="version">
+        <id name="taxaDeAlimentacaoCodigo" type="java.lang.Integer">
+            <column name="taxa_De_Alimentacao_Codigo" />
+            <generator class="identity" />
+        </id>
+        <property name="taxaDeAlimentacaoTaxa" type="big_decimal">
+            <column name="taxa_De_Alimentacao_Taxa" precision="10" scale="4" not-null="true" />
+        </property>
+        <property name="taxaDeAlimentacaoPesoMinimo" type="big_decimal">
+            <column name="taxa_De_Alimentacao_Peso_Minimo" precision="10" scale="3" not-null="true" />
+        </property>
+        <property name="taxaDeAlimentacaoPesoMaximo" type="big_decimal">
+            <column name="taxa_De_Alimentacao_Peso_Maximo" precision="10" scale="3" not-null="true" />
+        </property>
+        <set name="biometriaPeixeItems" table="biometria_peixe_item" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fk_Bpi_taxa_De_Alimentacao_Codigo" not-null="true" />
+            </key>
+            <one-to-many class="model.bean.BiometriaPeixeItem" />
+        </set>
+    </class>
+</hibernate-mapping>

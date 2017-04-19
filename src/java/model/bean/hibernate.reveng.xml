@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="peixepontocom"/>
+  <table-filter match-name="telefone_cliente"/>
+  <table-filter match-name="gaiola"/>
+  <table-filter match-name="cidades"/>
+  <table-filter match-name="tipo_funcionario"/>
+  <table-filter match-name="status_gaiola"/>
+  <table-filter match-name="tipo_estrutura"/>
+  <table-filter match-name="alimenta"/>
+  <table-filter match-name="registra_lotedepeixe"/>
+  <table-filter match-name="funcionario"/>
+  <table-filter match-name="bairros"/>
+  <table-filter match-name="cliente"/>
+  <table-filter match-name="biometria_peixe_item"/>
+  <table-filter match-name="telefone_fornecedor"/>
+  <table-filter match-name="venda"/>
+  <table-filter match-name="notificacao"/>
+  <table-filter match-name="tipo_notificacao"/>
+  <table-filter match-name="racao"/>
+  <table-filter match-name="fornece"/>
+  <table-filter match-name="tipo_peixes"/>
+  <table-filter match-name="alimenta_hora"/>
+  <table-filter match-name="fornecedor"/>
+  <table-filter match-name="taxa_de_alimentacao"/>
+</hibernate-reverse-engineering>

@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23/10/2016 17:38:29 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.bean.Cliente" table="cliente" catalog="peixepontocom" optimistic-lock="version">
+        <id name="clienteCodigo" type="java.lang.Integer">
+            <column name="cliente_Codigo" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="bairros" class="model.bean.Bairros" fetch="select">
+            <column name="fk_C_bairro_Codigo" not-null="true" />
+        </many-to-one>
+        <property name="clienteCnpj" type="string">
+            <column name="cliente_CNPJ" length="18" not-null="true" />
+        </property>
+        <property name="clienteNome" type="string">
+            <column name="cliente_Nome" length="50" not-null="true" />
+        </property>
+        <property name="clienteEmail" type="string">
+            <column name="cliente_Email" length="50" not-null="true" />
+        </property>
+        <property name="clienteEndRua" type="string">
+            <column name="cliente_EndRua" length="120" not-null="true" />
+        </property>
+        <property name="clienteEndNumero" type="string">
+            <column name="cliente_EndNumero" length="6" not-null="true" />
+        </property>
+        <set name="telefoneClientes" table="telefone_cliente" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fk_Tc_Cliente_Codigo" not-null="true" />
+            </key>
+            <one-to-many class="model.bean.TelefoneCliente" />
+        </set>
+        <set name="vendas" table="venda" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fk_V_Cliente_Codigo" not-null="true" />
+            </key>
+            <one-to-many class="model.bean.Venda" />
+        </set>
+    </class>
+</hibernate-mapping>

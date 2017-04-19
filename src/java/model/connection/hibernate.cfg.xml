@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/peixepontocom?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">123456</property>
+    <mapping resource="model/bean/Alimenta.hbm.xml"/>
+    <mapping resource="model/bean/Gaiola.hbm.xml"/>
+    <mapping resource="model/bean/TipoFuncionario.hbm.xml"/>
+    <mapping resource="model/bean/Venda.hbm.xml"/>
+    <mapping resource="model/bean/TaxaDeAlimentacao.hbm.xml"/>
+    <mapping resource="model/bean/TelefoneFornecedor.hbm.xml"/>
+    <mapping resource="model/bean/AlimentaHora.hbm.xml"/>
+    <mapping resource="model/bean/TipoNotificacao.hbm.xml"/>
+    <mapping resource="model/bean/Notificacao.hbm.xml"/>
+    <mapping resource="model/bean/Cidades.hbm.xml"/>
+    <mapping resource="model/bean/BiometriaPeixeItem.hbm.xml"/>
+    <mapping resource="model/bean/TelefoneCliente.hbm.xml"/>
+    <mapping resource="model/bean/Cliente.hbm.xml"/>
+    <mapping resource="model/bean/Racao.hbm.xml"/>
+    <mapping resource="model/bean/TipoEstrutura.hbm.xml"/>
+    <mapping resource="model/bean/RegistraLotedepeixe.hbm.xml"/>
+    <mapping resource="model/bean/Bairros.hbm.xml"/>
+    <mapping resource="model/bean/TipoPeixes.hbm.xml"/>
+    <mapping resource="model/bean/Fornece.hbm.xml"/>
+    <mapping resource="model/bean/Funcionario.hbm.xml"/>
+    <mapping resource="model/bean/StatusGaiola.hbm.xml"/>
+    <mapping resource="model/bean/Fornecedor.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

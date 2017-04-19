@@ -1,0 +1,12 @@
+@charset "utf-8";
+/* CSS Document */
+
+a {
+	text-decoration:none;
+}
+
+.PlanoDeFundo{
+	background-color:#39367C;
+	width: 180px;
+	height: 300px;
+}

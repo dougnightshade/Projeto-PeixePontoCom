@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23/10/2016 17:38:29 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.bean.BiometriaPeixeItem" table="biometria_peixe_item" catalog="peixepontocom" optimistic-lock="version">
+        <id name="biometriaPeixeItemCodigo" type="java.lang.Integer">
+            <column name="biometria_Peixe_Item_Codigo" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="funcionario" class="model.bean.Funcionario" fetch="select">
+            <column name="fk_Bpi_funcionario_Codigo" not-null="true" />
+        </many-to-one>
+        <many-to-one name="registraLotedepeixe" class="model.bean.RegistraLotedepeixe" fetch="select">
+            <column name="fk_Bpi_registra_LoteDePeixe_Codigo" not-null="true" />
+        </many-to-one>
+        <many-to-one name="taxaDeAlimentacao" class="model.bean.TaxaDeAlimentacao" fetch="select">
+            <column name="fk_Bpi_taxa_De_Alimentacao_Codigo" not-null="true" />
+        </many-to-one>
+        <property name="biometriaPeixeItemTotalDeQuilos" type="big_decimal">
+            <column name="biometria_Peixe_Item_TotalDeQuilos" precision="10" scale="3" not-null="true" />
+        </property>
+        <property name="biometriaPeixeItemQtdAmostra" type="double">
+            <column name="biometria_Peixe_Item_QtdAmostra" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="biometriaPeixeItemNumeroEtapa" type="int">
+            <column name="biometria_Peixe_Item_NumeroEtapa" not-null="true" />
+        </property>
+        <property name="biometriaPeixeItemDataDeRegistro" type="date">
+            <column name="biometria_Peixe_Item_DataDeRegistro" length="10" not-null="true" />
+        </property>
+        <property name="biometriaPeixeItemAtivo" type="boolean">
+            <column name="biometria_Peixe_Item_Ativo" not-null="true" />
+        </property>
+        <property name="biometriaPeixeItemTaxaArracoamento" type="big_decimal">
+            <column name="biometria_Peixe_Item_TaxaArracoamento" precision="10" scale="3" not-null="true" />
+        </property>
+        <set name="alimentas" table="alimenta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fk_A_biometria_Peixe_Item_Codigo" not-null="true" />
+            </key>
+            <one-to-many class="model.bean.Alimenta" />
+        </set>
+    </class>
+</hibernate-mapping>
